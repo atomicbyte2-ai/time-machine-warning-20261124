@@ -2,13 +2,12 @@
 // Writes the warning label to /output/entry.txt and validates it:
 // exactly one line, 1-120 characters, non-blank.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 const LINE =
   "WARNING: Do not step on butterflies. One of them is your grandfather.";
 
-const OUTPUT_DIR = "/output";
+const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 const OUTPUT_PATH = resolve(OUTPUT_DIR, "entry.txt");
 
 function main(): void {
